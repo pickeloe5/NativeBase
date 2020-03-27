@@ -13,8 +13,9 @@ class Input extends NativeBaseComponent {
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
+    const { TextInputComponent = TextInput, ...props } = this.props;
     return (
-      <TextInput
+      <TextInputComponent
         ref={c => {
           this._textInput = c;
           this._root = c;
@@ -26,7 +27,7 @@ class Input extends NativeBaseComponent {
             ? this.props.placeholderTextColor
             : variables.inputColorPlaceholder
         }
-        {...this.props}
+        {...props}
       />
     );
   }

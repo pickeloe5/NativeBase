@@ -7,7 +7,8 @@ import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Label extends Component {
   render() {
-    return <Text ref={c => (this._root = c)} {...this.props} />;
+    const { TextComponent = Text, ...props } = this.props;
+    return <TextComponent ref={c => (this._root = c)} {...props} />;
   }
 }
 
